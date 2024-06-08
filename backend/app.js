@@ -11,12 +11,12 @@ app.use(cookieParser());
 
 app.use("/api/v1", userRouter);
 
-// Serve static files from the React app
-app.use(express.static(path.resolve("./frontend/build")));
+// // Serve static files from the React app
+// app.use(express.static(path.resolve("./frontend/build")));
 
-// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
-app.get("*", (req, res) => {
-    res.sendFile(path.resolve("./frontend/build/index.html"));
-});
+// // The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
+// app.get("*", (req, res) => {
+//     res.sendFile(path.resolve("./frontend/build/index.html"));
+// });
 
 export { app };
