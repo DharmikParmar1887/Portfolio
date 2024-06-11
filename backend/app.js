@@ -2,8 +2,15 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import { userRouter } from './routes/User.js';
 import path from "path";
+import cors from "cors"; // Import cors
 
 const app = express();
+
+// Use CORS middleware
+app.use(cors({
+  origin: 'https://portfolio-1-ofiz.onrender.com', // Replace with your frontend URL
+  credentials: true // Enable credentials if you are using cookies or other credentials
+}));
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
