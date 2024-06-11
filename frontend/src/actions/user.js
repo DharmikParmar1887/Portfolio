@@ -100,7 +100,7 @@ export const addTimeline = (title, description, date) => async (dispatch) => {
 export const deleteTimeline = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_TIMELINE_REQUEST" });
-        const { data } = await axiosInstance.delete(`/api/v1/admin/timeline/`);
+        const { data } = await axiosInstance.delete(`/api/v1/admin/timeline/${id}`);
         dispatch({
             type: "DELETE_TIMELINE_SUCCESS",
             payload: data.message,
@@ -132,7 +132,7 @@ export const addProject = (url, title, image, description, techStack) => async (
 export const deleteProject = (id) => async (dispatch) => {
     try {
         dispatch({ type: "DELETE_PROJECT_REQUEST" });
-        const { data } = await axiosInstance.delete(`/api/v1/admin/project/`);
+        const { data } = await axiosInstance.delete(`/api/v1/admin/project/${id}`);
         dispatch({
             type: "DELETE_PROJECT_SUCCESS",
             payload: data.message,
