@@ -16,27 +16,10 @@ export const getUser = () => async (dispatch) => {
     }
 };
 
-// export const login = (email, password) => async (dispatch) => {
-//     try {
-//         dispatch({ type: "LOGIN_REQUEST" });
-//         const { data } = await axiosInstance.post("/api/v1/login", { email, password });
-//         dispatch({
-//             type: "LOGIN_SUCCESS",
-//             payload: data.message,
-//         });
-//     } catch (error) {
-//         dispatch({
-//             type: "LOGIN_FAILURE",
-//             payload: error.response?.data?.message || error.message,
-//         });
-//     }
-// };
-
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: "LOGIN_REQUEST" });
         const { data } = await axiosInstance.post("/api/v1/login", { email, password });
-        localStorage.setItem('token', data.token); // Store token in localStorage
         dispatch({
             type: "LOGIN_SUCCESS",
             payload: data.message,
@@ -48,6 +31,7 @@ export const login = (email, password) => async (dispatch) => {
         });
     }
 };
+
 
 export const logout = () => async (dispatch) => {
     try {
