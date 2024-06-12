@@ -38,15 +38,14 @@
 
 // export default axiosInstance;
 
-
 // axiosInstance.js
 import axios from 'axios';
 
 const axiosInstance = axios.create({
     baseURL: 'https://portfolio-i6fi.onrender.com',
+    withCredentials: true, // This ensures cookies are sent with requests
 });
 
-// Add a request interceptor to include the token in headers
 axiosInstance.interceptors.request.use((config) => {
     const token = localStorage.getItem('token');
     if (token) {
@@ -58,3 +57,4 @@ axiosInstance.interceptors.request.use((config) => {
 });
 
 export default axiosInstance;
+
